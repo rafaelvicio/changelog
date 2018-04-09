@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://www.mocky.io/v2/5acaa5562e00004900bba9f7')
+    axios.get('http://www.mocky.io/v2/5acab06c2e00004d00bbaa0d')
       .then(function (response) {
         console.log('Response: ', response.data)
         this.setState({ sistemas: response.data });
@@ -23,7 +23,7 @@ class App extends Component {
 
   handleClick = () => {
     console.log('Indo buscar dados');
-    axios.get('http://www.mocky.io/v2/5acaa5562e00004900bba9f7')
+    axios.get('http://www.mocky.io/v2/5acab06c2e00004d00bbaa0d')
       .then(function (response) {
         this.setState({ sistemas: response.data });
       }.bind(this))
@@ -44,9 +44,13 @@ class App extends Component {
         </p>
         <div>
           <ul>
-            {this.state.sistemas.map(sistema =>
-              <li key={sistema.id}>{sistema.nome}</li>
-            )}
+            {
+              this.state.sistemas.map(function (sistema) {
+                return (
+                  <ul key={sistema.id}>{sistema.nome}</ul>
+                );
+              })
+            }
           </ul>
         </div>
       </div>
