@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import CpMenu from './componentes/CpMenu';
+import CpVersoes from './componentes/CpVersoes';
+import CpVersao from './componentes/CpVersao';
 
-import { Button } from 'react-bootstrap';
+import { Button, Navbar, Header, Brand, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 import axios from 'axios';
 
@@ -39,14 +41,26 @@ class App extends Component {
         <CpMenu />
         <div className="App">
 
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
+          <header>
+            <div className="bs-header" id="content">
+              <div className="container">
+                <h1>Sistema de Changelog</h1>
+                <p>Histoico de atualização dos sistemas</p>
+              </div>
+            </div>
           </header>
 
-          <button className='button' onClick={this.handleClick}>
-            Click Me
-      </button>
+          <div className="row">
+            <div className="col-4">
+              <CpVersoes />
+            </div>
+            <div className="col-3">
+              <CpVersao />
+              <CpVersao />
+              <CpVersao />
+            </div>
+          </div>
+
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
         </p>
